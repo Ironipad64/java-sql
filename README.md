@@ -14,7 +14,7 @@ Working with SQL
 
 Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same data we used during the guided project. You can find a copy of the SQL script under the `assets` folder in this repository.
 
-* [ ] ***pgAdmin data refresh***
+* [x] ***pgAdmin data refresh***
 
 * Select the northwind database created during the guided project.
 
@@ -29,7 +29,7 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 ### Answer the following data queries. Keep track of the SQL you write by pasting it into this document under its appropriate header below in the provided SQL code block. You will be submitting that through the regular fork, change, pull process
 
-* [ ] ***find all customers that live in London. Returns 6 records***
+* [x] ***find all customers that live in London. Returns 6 records***
 
   <details><summary>hint</summary>
 
@@ -38,20 +38,12 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 ```SQL
 
-```
+-- ```SELECT company_name, contact_name, contact_title, contact_title
+-- ```FROM customers
+-- ```WHERE city = 'London'
 
-* [ ] ***find all customers with postal code 1010. Returns 3 customers***
 
-  <details><summary>hint</summary>
-
-  * This can be done with SELECT and WHERE clauses
-  </details>
-
-```SQL
-
-```
-
-* [ ] ***find the phone number for the supplier with the id 11. Should be (010) 9984510***
+* [x] ***find all customers with postal code 1010. Returns 3 customers***
 
   <details><summary>hint</summary>
 
@@ -60,9 +52,29 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 ```SQL
 
-```
+```SELECT contact_name, postal_code
+```FROM customers
+```WHERE postal_code = '1010'
 
-* [ ] ***list orders descending by the order date. The order with date 1998-05-06 should be at the top***
+
+
+* [x] ***find the phone number for the supplier with the id 11. Should be (010) 9984510***
+
+  <details><summary>hint</summary>
+
+  * This can be done with SELECT and WHERE clauses
+  </details>
+
+```SQL
+
+```SELECT supplier_ID, contact_name, phone
+```FROM suppliers
+```WHERE supplier_ID = 11
+
+
+
+
+* [x] ***list orders descending by the order date. The order with date 1998-05-06 should be at the top***
 
   <details><summary>hint</summary>
 
@@ -71,7 +83,14 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 ```SQL
 
-```
+```SELECT order_date
+```FROM orders
+```ORDER BY orders DESC
+/// DESC reverses the order
+
+
+
+
 
 * [ ] ***find all suppliers who have names longer than 20 characters. Returns 11 records***
 
