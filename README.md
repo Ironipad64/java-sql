@@ -86,13 +86,14 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 ```SELECT order_date
 ```FROM orders
 ```ORDER BY orders DESC
+
 /// DESC reverses the order
 
 
 
 
 
-* [ ] ***find all suppliers who have names longer than 20 characters. Returns 11 records***
+* [x] ***find all suppliers who have names longer than 20 characters. Returns 11 records***
 
   <details><summary>hint</summary>
 
@@ -102,22 +103,38 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 ```SQL
 
-```
+```SELECT company_name
+```FROM suppliers
+```WHERE LENGTH(company_name) > 20
 
-* [ ] ***find all customers that include the word 'MARKET' in the contact title. Should return 19 records***
+//LENGTH filters something by there length
+
+
+
+
+
+
+
+* [x] ***find all customers that include the word 'MARKET' in the contact title. Should return 19 records***
 
   <details><summary>hint</summary>
 
-  * This can be done with SELECT and a WHERE clause using the LIKE keyword
-  * Don't forget the wildcard '%' symbols at the beginning and end of your substring to denote it can appear anywhere in the string in question
-  * Remember to convert your contact title to all upper case for case insensitive comparing so upper(contact_title)
-  </details>
+--   * This can be done with SELECT and a WHERE clause using the LIKE keyword
+--   * Don't forget the wildcard '%' symbols at the beginning and end of your substring to denote it can appear anywhere in the string in question
+--   * Remember to convert your contact title to all upper case for case insensitive comparing so upper(contact_title)
+--   </details>
 
-```SQL
+-- ```SQL
 
-```
+-- ```SELECT contact_title
+-- ```FROM customers
+-- ```WHERE contact_title LIKE '%Market%'
 
-* [ ] ***add a customer record for***
+
+
+
+
+* [x] ***add a customer record for***
 * customer id is 'SHIRE'
 * company name is 'The Shire'
 * contact name is 'Bilbo Baggins'
@@ -132,7 +149,12 @@ Reimport the Northwind database into PostgreSQL using pgAdmin. This is the same 
 
 ```SQL
 
-```
+```INSERT INTO customers(customer_id, company_name, contact_name, address, city, ```postal_code, country)
+```       VALUES('SHIRE','The Shire','Bilbo Baggins','1 Hobbit-Hole', 'Bag ```End', '111', 'Middle Earth')
+
+
+
+
 
 * [ ] ***update _Bilbo Baggins_ record so that the postal code changes to _"11122"_***
 
